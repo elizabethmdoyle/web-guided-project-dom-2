@@ -1,4 +1,4 @@
-console.log('project is up')
+console.log('project is up');
 
 // 👉 TASK 1- Select the following elements from the DOM:
 
@@ -16,14 +16,36 @@ const modal = document.querySelector('.modal')
 
 
 // 👉 TASK 2- Demo handling click events on button#launchButton, using:
-//  A- HTML inside index.html
+//  A- HTML inside index.html - done
 //  B- The DOM's element.onclick attribute
+launchButton.onclick = function() {
+    console.log('on click event')
+}
 //  C- element.addEventListener('click', callback)
+launchButton.addEventListener('click', function(evt) {
+    console.log(`
+    event type: ${evt.type},
+    event target: ${evt.target.nodeName}
+    `);
+})
+
 
 
 // 👉 TASK 3- Create a function that launches!
 // It should open the confirmation modal.
 // Add it as an event listener for click events on the launch button.
+
+/*
+two ways to write a function:
+1. as a function declaration: functionName() {...} - declarations are hoisted
+2. as a function expression: const functionName = function() {} - not hoisted
+*/
+
+function launch() {
+    modal.classList.toggle('off');
+}
+
+launchButton.addEventListener('click', launch)
 
 
 // 👉 TASK 4- Create a function to confirm the launch.
